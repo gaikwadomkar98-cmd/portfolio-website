@@ -1,0 +1,90 @@
+
+:root {
+  --bg: #fbfbf9;
+  --text: #1c2430;
+  --muted: #5b6676;
+  --accent: #1f6feb;
+  --card: #ffffff;
+  --border: #e3e6ea;
+}
+
+
+body.dark {
+  --bg: #12161c;
+  --text: #e8ecf1;
+  --muted: #a0aab8;
+  --accent: #6aa5ff;
+  --card: #1b212a;
+  --border: #2a323d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* HEADER */
+.header {
+  position: sticky; top: 0;
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-weight: 700; text-decoration: none; color: var(--text); }
+.nav { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--accent); }
+#themeBtn {
+  background: none; color: var(--text); cursor: pointer;
+  border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
+}
+
+/* SECTIONS */
+section { max-width: 760px; margin: 0 auto; padding: 56px 24px; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.1; margin: 4px 0 12px; }
+h2 { font-size: 1.6rem; margin-bottom: 16px; }
+p { margin-bottom: 12px; max-width: 65ch; }
+.small { color: var(--muted); margin: 0; }
+.lead { font-size: 1.2rem; color: var(--muted); }
+
+.btn {
+  display: inline-block; margin-top: 12px;
+  background: var(--accent); color: #fff;
+  padding: 10px 20px; border-radius: 6px; text-decoration: none;
+}
+.btn:hover { opacity: 0.9; }
+
+/* SKILLS */
+.skills { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+.skills li {
+  border: 1px solid var(--border); background: var(--card);
+  padding: 6px 14px; border-radius: 999px;
+}
+
+/* PROJECTS: mobile वर 1 column, मोठ्या screen वर 3 columns */
+.grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 18px;
+}
+.card h3 { margin-bottom: 6px; }
+@media (min-width: 700px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* FOOTER */
+.footer { text-align: center; padding: 24px; color: var(--muted); border-top: 1px solid var(--border); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
